@@ -1,10 +1,15 @@
 package veV;
 
 import static veV.stringUtils.substringBetween;
+
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 
 
 class stringUtilsTest {
@@ -33,27 +38,48 @@ class stringUtilsTest {
 		assertEquals(null,substringBetween(s,o,c));
 	}
 	
-	@Test
-	void openandCloseOfLength1 () {
-		assertArrayEquals(null,substringBetween("abc","x","y"));
-		assertArrayEquals(null,substringBetween("abc","a","y"));
-		assertArrayEquals(null,substringBetween("abc","x","c"));
-		assertArrayEquals(new String[] {"b"},substringBetween("abc","a","c"));
-		assertArrayEquals(new String[] {"b","b"},substringBetween("abcabc","a","c"));
+	static Stream <Arguments> dataopenandCloseOfLength1 () {
+		return Stream.of(
+				Arguments.of(null,"abc","x","y"),
+				Arguments.of(null,"abc","a","y"),
+				Arguments.of(null,"abc","x","c"),
+				Arguments.of(new String[] {"b"},"abc","a","c"),
+				Arguments.of(new String[] {"b","b"},"abcabc","a","c")
+				);
+	}
+	@ParameterizedTest
+	@MethodSource("dataopenandCloseOfLength1")
+	void openandCloseOfLength1 (String [] expected, String str, String open, String close) {
+		assertArrayEquals(expected,substringBetween(str,open,close));
 	}
 	
-	@Test
-	void openandCloseofLengthGreaterThan1 () {
-		assertArrayEquals(null,substringBetween("aabcc","xx","yy"));
-		assertArrayEquals(null,substringBetween("aabcc","aa","yy"));
-		assertArrayEquals(null,substringBetween("aabcc","x","cc"));
-		assertArrayEquals(new String[] {"bb"},substringBetween("aabbcc","aa","cc"));
-		assertArrayEquals(new String[] {"bb","ee"},substringBetween("aabbccaaeecc","aa","cc"));
+	static Stream <Arguments> dataopenandCloseOfLengthGreaterThan1 () {
+		return Stream.of(
+				Arguments.of(null,"aabcc","xx","yy"),
+				Arguments.of(null,"aabcc","aa","yy"),
+				Arguments.of(null,"aabcc","x","cc"),
+				Arguments.of(new String[] {"bb"},"aabbcc","aa","cc"),
+				Arguments.of(new String[] {"bb","ee"},"aabbccaaeecc","aa","cc")	
+				);
+	}
+				
+	@ParameterizedTest
+	@MethodSource("dataopenandCloseOfLengthGreaterThan1")
+	void openandCloseofLengthGreaterThan1 (String [] expected, String str, String open, String close) {
+		assertArrayEquals(expected,substringBetween(str,open,close));
 	}
 	
-	@Test
-	void noSubstringBetween () {
-		assertArrayEquals(new String[] {""},substringBetween("aabb","aa","bb"));
+	static Stream <Arguments> datanoStringBetween () {
+		return Stream.of(
+				Arguments.of(new String[] {""},"aabb","aa","bb")
+				);
+	}
+	
+	@ParameterizedTest
+	@MethodSource("datanoStringBetween")
+	
+	void noSubstringBetween (String [] expected, String str, String open, String close) {
+		assertArrayEquals(expected,substringBetween(str,open,close));
 	}
 	
 }
