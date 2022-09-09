@@ -14,6 +14,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 class stringUtilsTest {
 
+	// Casos Excepcionais
 	@Test
 	void strIsNullorEmpty () {
 		assertEquals(null,substringBetween(null,"a","b"),"str é null");
@@ -32,13 +33,15 @@ class stringUtilsTest {
 		assertArrayEquals(null,substringBetween("abc","",null),"close é vazia");
 	}
 	
+	// Tamanho de str = 1
 	@ParameterizedTest
 	@CsvSource({"a,b,c","a,a,b","b,a,b","a,a,a"})
 	void strOfLength1 (String s, String o, String c) {
 		assertEquals(null,substringBetween(s,o,c));
 	}
 	
-	static Stream <Arguments> dataopenandCloseOfLength1 () {
+	// Tamanho de str > 1
+	static Stream <Arguments> openandCloseOfLength1Data () {
 		return Stream.of(
 				Arguments.of(null,"abc","x","y"),
 				Arguments.of(null,"abc","a","y"),
@@ -48,11 +51,12 @@ class stringUtilsTest {
 				);
 	}
 	@ParameterizedTest
-	@MethodSource("dataopenandCloseOfLength1")
+	@MethodSource("openandCloseOfLength1Data")
 	void openandCloseOfLength1 (String [] expected, String str, String open, String close) {
 		assertArrayEquals(expected,substringBetween(str,open,close));
 	}
 	
+	// Tamanho de str > 1, open > 1 e close > 1
 	static Stream <Arguments> dataopenandCloseOfLengthGreaterThan1 () {
 		return Stream.of(
 				Arguments.of(null,"aabcc","xx","yy"),
@@ -69,6 +73,7 @@ class stringUtilsTest {
 		assertArrayEquals(expected,substringBetween(str,open,close));
 	}
 	
+	// Teste Valor Limite
 	static Stream <Arguments> datanoStringBetween () {
 		return Stream.of(
 				Arguments.of(new String[] {""},"aabb","aa","bb")
@@ -77,7 +82,6 @@ class stringUtilsTest {
 	
 	@ParameterizedTest
 	@MethodSource("datanoStringBetween")
-	
 	void noSubstringBetween (String [] expected, String str, String open, String close) {
 		assertArrayEquals(expected,substringBetween(str,open,close));
 	}
