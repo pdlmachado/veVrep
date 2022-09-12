@@ -30,7 +30,7 @@ class stringUtilsTest {
 	@Test
 	void closeIsNullorEmpty () {
 		assertEquals(null,substringBetween("abc","a",null),"close é null");
-		assertArrayEquals(null,substringBetween("abc","",null),"close é vazia");
+		assertArrayEquals(null,substringBetween("abc","a",""),"close é vazia");
 	}
 	
 	// Tamanho de str = 1

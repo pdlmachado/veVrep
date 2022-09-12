@@ -1,4 +1,5 @@
 package veV;
+//Exemplo do livro Effective Software Testing 
 
 import java.util.ArrayList;
 import java.util.List;
