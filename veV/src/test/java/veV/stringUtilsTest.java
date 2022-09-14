@@ -63,7 +63,8 @@ class stringUtilsTest {
 				Arguments.of(null,"aabcc","aa","yy"),
 				Arguments.of(null,"aabcc","x","cc"),
 				Arguments.of(new String[] {"bb"},"aabbcc","aa","cc"),
-				Arguments.of(new String[] {"bb","ee"},"aabbccaaeecc","aa","cc")	
+				Arguments.of(new String[] {"bb","ee"},"aabbccaaeeccaa","aa","cc"),
+				Arguments.of(new String[] {"bb","ee"},"aabbcccccccaaeeccccccccaa","aa","cccccc")
 				);
 	}
 				

@@ -20,7 +20,7 @@ class stringUtilsAdhocTest {
 	
 	@Test
 	void opencloselonger() {
-		assertArrayEquals(new String [] {"bc", "bf"}, substringBetween("aabcddaabfddaab", "aa", "dd"));
+		assertArrayEquals(new String [] {"bc", "bf"}, substringBetween("aabcdddddddaabfdddddddaab", "aa", "ddddddd"));
 	}
 
 }

@@ -22,7 +22,7 @@ public class stringUtils {
 		int openLen = open.length();
 		List <String> list = new ArrayList<String>();
 		int pos = 0;
-		while (pos < strLen-closeLen) {
+		while (pos <= strLen-closeLen) {
 			int start = str.indexOf(open,pos);
 			if (start < 0) {
 				break;
