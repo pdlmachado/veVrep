@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class CountWordsTestMelhorada {
+class CountWordsTestMelhorada2 {
 	
 	@Test
 	void testnull () {
@@ -33,7 +33,9 @@ class CountWordsTestMelhorada {
 	// Uma ocorrência, palavras de tamanho 1 ou maior
 	@ParameterizedTest
 	@CsvSource({"dogs and cat",
-		        "my car drive"
+		        "my car drive",
+		        "sorrir",
+		        "sos"
 	})
 	void testoneoccurrence(String argument) {
 		int words = new CountWords().count(argument);

@@ -16,9 +16,7 @@ class CountWordsTestAdDoc {
 	} 
 	
 	@ParameterizedTest
-	@CsvSource({"dog and cat",
-		        "0000"
-	})
+	@CsvSource({"dog and cat","0000" })
 	void testzerooccurrences (String argument) {
 		int words = new CountWords().count(argument);
 		assertEquals(0,words);
@@ -26,15 +24,9 @@ class CountWordsTestAdDoc {
 
 	@ParameterizedTest
 	@CsvSource({"1, dogs and cat", 
-		        "2, driver and car at night"
-	})
+		        "2, driver and car at night"})
 	void testoneormoreoccurrences(int expected, String argument) {
 		int words = new CountWords().count(argument);
 		assertEquals(expected,words);	
-	}
-	
-
-	
-
-	
+	}	
 }
