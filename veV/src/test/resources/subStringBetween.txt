@@ -1,0 +1,11 @@
+strSize: 1, 2+
+strOccurrence: none, empty, nonempty, several
+strContains: none, 1open, 1close, 1openclose, 2openclose+
+openSize: 1, 2+
+closeSize: 1, 2+
+
+IF [strSize] ="1" THEN [strOccurrence] = "none" and [strContains]<>"1openclose" and [strContains]<>"2openclose+" and
+                  [closeSize]<>"2+" and [openSize]<>"2+";
+IF [strOccurrence] = "none" THEN [strContains] <> "1openclose" and [strContains] <> "2openclose+";
+IF [strOccurrence] = "empty" or [strOccurrence] = "nonempty" THEN [strContains] = "1openclose";
+IF [strOccurrence] = "several" THEN [strContains] = "2openclose+";
