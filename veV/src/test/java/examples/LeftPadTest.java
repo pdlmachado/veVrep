@@ -1,6 +1,6 @@
-package veV;
+package examples;
 
-import static veV.LeftPad.leftPad;
+import static examples.LeftPad.leftPad;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.stream.Stream;

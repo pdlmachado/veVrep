@@ -1,4 +1,4 @@
-package veV;
+package examples;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class CountWordsTestMelhoradaFinal {
+import examples.CountWords;
+
+class CountWordsTestMelhorada {
 	
 	@Test
 	void testnull () {
@@ -30,27 +32,21 @@ class CountWordsTestMelhoradaFinal {
 		assertEquals(0,words);
 	}
 	
-	// Uma ocorrência, palavra de tamanho 1 ou maior
+	// Uma ocorrência, palavras de tamanho 1 ou maior
 	@ParameterizedTest
 	@CsvSource({"dogs and cat",
-		"my car drive",
-		"sos",
-		"sorrir",
-		"o uso de r em verbo",
-		"o uso de s em verbo",
-		"r",
-		"s"
+		        "my car drive"
 	})
 	void testoneoccurrence(String argument) {
 		int words = new CountWords().count(argument);
 		assertEquals(1,words);	
 	}
 	
-	// Mais de uma ocorrência
+	// Mais de uma ocorrência, palavras de qualquer tamanho
 	@ParameterizedTest
 	@CsvSource({"2, dogs and cats run",
 		        "2, car and driver run",
-                "3, car and dogs and cats run",
+                "3, car and dogs and cats run"
 	})
 	void testmoreoccurrences(int expected, String argument) {
 		int words = new CountWords().count(argument);

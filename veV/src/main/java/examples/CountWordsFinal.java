@@ -1,7 +1,7 @@
-package veV;
-
+package examples;
 // Exemplo do livro Effective Software Testing 
-public class CountWords {
+
+public class CountWordsFinal {
 	public int count (String str) {
 		// Conta quantas palavras terminam em r ou s
 		if (str == null) {
@@ -9,7 +9,7 @@ public class CountWords {
 		}
 		int words = 0;
 		char last = ' ';
-		for (int i = 1; i < str.length(); i++) {
+		for (int i = 0; i < str.length(); i++) {
 			if (!Character.isLetter(str.charAt(i)) &&
 					(last == 's' || last == 'r')) {
 				words++;

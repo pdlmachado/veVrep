@@ -1,9 +1,8 @@
-package veV;
-
-import static veV.stringUtils.substringBetween;
+package examples;
 
 import java.util.stream.Stream;
 
+import static examples.stringUtils.substringBetween;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

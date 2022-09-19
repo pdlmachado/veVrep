@@ -1,7 +1,6 @@
-package veV;
+package examples;
 
-import static veV.stringUtils.substringBetween;
-
+import static examples.stringUtils.substringBetween;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package veV;
+package examples;
 
 public class LeftPad {
 	//From Apache Commons and Aniche Book
